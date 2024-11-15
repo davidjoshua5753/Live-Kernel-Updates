@@ -9,6 +9,8 @@ How this is to be achieved is up to you (the reader), and I make no promises tha
 ### This bash script may be incomplete and not final, and could damage your system!  
 ### DO NOT test this unless doing so in a Virtual Machine, so as not to wreck your system!
 
+### IT IS RECOMMENDED TO RUN THE SCRIPT AS ROOT.
+
 ## GIVEN: 
 16 GB RAM  
 512 GB SSD

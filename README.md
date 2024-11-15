@@ -14,12 +14,14 @@ How this is to be achieved is up to you (the reader), and I make no promises tha
 512 GB SSD
 
 ## PARTITIONING SCHEME
-sda - /boot/efi - 256 MB  
-sdb - /root - 8 GB  
-sdc - /home 256 GB  
-sdd - /swap - 32 GB  
-sde - /recovery - 16 GB  
+/dev/sda - /boot/efi - 256 MB  
+/dev/sdb - /root - 8 GB  
+/dev/sdc - /home 256 GB  
+/dev/sdd - /swap - 32 GB  
+/dev/sde - /recovery - 16 GB  
 Free Space: ~200 GB  
+
+### Assuming the home directory is mounted in root:
 
 ## PSEUDO-SCRIPT
 ### Make a temp directory to store new kernel package in swap:  

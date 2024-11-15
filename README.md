@@ -56,7 +56,7 @@ $ wget swift.kernel.org.latest /swap/tmp
 $ rsync /root/users /recovery  
 $ cd /swap
 $ cp /etc/bash /swap
-$ export PATH=$PATH: /etc/bash
+$ export PATH=$PATH: /swap/etc/bash
 $ mv /root /swap  
 $ sudo dpkg /swap/tmp/swift.kernel.org.latest /root  
 $ restore /recovery /root/users  

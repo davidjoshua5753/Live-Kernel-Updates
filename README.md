@@ -1,4 +1,4 @@
-# Live-Kernel-Updates
+# Live Kernel Updates
 The idea of Live Kernel updates is to reduce system downtime, which can be costly and potentially take hours.  
 
 ## WARNING  

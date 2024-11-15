@@ -15,10 +15,11 @@ How this is to be achieved is up to you (the reader), and I make no promises tha
 
 ## PARTITIONING SCHEME
 sda - /boot/efi - 256 MB  
-sdb - /root - 256 GB  
-sdc - /swap - 32 GB  
+sdb - /root - 8 GB  
+sdc - /home 256 GB
+sdd - /swap - 32 GB  
 sde - /recovery - 16 GB  
-Free Space: 208 GB  
+Free Space: ~200 GB  
 
 ## PSEUDO-SCRIPT
 ### Make a temp directory to store new kernel package in swap:  
@@ -27,8 +28,7 @@ mkdir /swap/tmp
 ### Retrieve new Kernel and store in /swap/tmp:  
 wget unix.kernel.org /swap/tmp  
 
-### Backup User Password, Group and Home Folder Data:  
-rsync /home /recovery/home  
+### Backup User Password, Group and Home Folder Data:
 rsync /etc/passwd /recovery/etc/passwd  
 rsync /etc/shadow /recovery/etc/shadow  
 rsync /etc/group /recovery/etc/group  
@@ -50,7 +50,6 @@ mv /root /swap
 sudo dpkg /swap/tmp/unix.kernel.org /root  
 
 ### Restore User Password and Group Data:
-rsync /recovery/home /home  
 rsync /recovery/etc/passwd /etc/passwd  
 rsync /recovery/etc/shadow /etc/shadow  
 rsync /recovery/etc/group /etc/group  
@@ -64,7 +63,6 @@ logout
 
 ```
 $ mkdir /swap/tmp
-$ rsync /home /recovery/home
 $ wget unix.kernel.org.latest /swap/tmp
 $ rsync /etc/passwd /recovery/etc/passwd  
 $ rsync /etc/shadow /recovery/etc/shadow  
@@ -73,9 +71,8 @@ $ rsync /etc/gshadow /recovery/etc/gshadow
 $ cd /swap  
 $ cp /etc/bash /swap  
 $ export PATH=$PATH:/swap/etc/bash  
-$ mv /root /swap  
-$ sudo dpkg /swap/tmp/unix.kernel.org.latest /root
-$ rsync /recovery/home /home 
+$ mv / /swap  
+$ sudo dpkg /swap/tmp/unix.kernel.org.latest /
 $ rsync /recovery/etc/passwd /etc/passwd  
 $ rsync /recovery/etc/shadow /etc/shadow  
 $ rsync /recovery/etc/group /etc/group  

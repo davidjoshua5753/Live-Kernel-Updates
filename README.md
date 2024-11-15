@@ -21,7 +21,7 @@ How this is to be achieved is up to you (the reader), and I make no promises tha
 /dev/sde - /recovery - 16 GB  
 Free Space: ~200 GB  
 
-### Assuming the home directory is mounted in root:
+# Assuming the home directory is mounted in root.
 
 ## PSEUDO-SCRIPT
 ### Make a temp directory to store new kernel package in swap:  

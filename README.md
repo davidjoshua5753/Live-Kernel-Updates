@@ -69,7 +69,7 @@ logout
 
 ```
 $ mkdir /swap/tmp
-$ wget ***[link-to-kernel-image]*** /swap/tmp
+$ wget [link-to-kernel-image] /swap/tmp
 $ rsync /etc/passwd /recovery/etc/passwd  
 $ rsync /etc/shadow /recovery/etc/shadow  
 $ rsync /etc/group /recovery/etc/group  
@@ -79,7 +79,7 @@ $ cd /swap
 $ cp /etc/bash /swap  
 $ export PATH=$PATH:/swap/etc/bash  
 $ mv /root /swap  
-$ sudo dpkg /swap/tmp/***[kernel-image-file]*** /root
+$ sudo dpkg /swap/tmp/[kernel-image-file] /root
 $ mount /dev/sdc /home
 $ rsync /recovery/etc/passwd /etc/passwd  
 $ rsync /recovery/etc/shadow /etc/shadow  

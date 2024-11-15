@@ -3,7 +3,7 @@ The idea of Live Kernel updates is to reduce system downtime, which can be costl
 
 ## WARNING  
 ### This bash script is incomplete and not final, and could damage your system!  
-### Be mindful to not use this unless doing so in a Virtual Machine, so as not to wreck your system!
+### Be mindful to not test this unless doing so in a Virtual Machine, so as not to wreck your system!
 
 ## GIVEN: 
 16 GB RAM  

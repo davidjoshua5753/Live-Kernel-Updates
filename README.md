@@ -32,6 +32,9 @@ cd /swap
 ### Copy Bash to swap (not 100% sure on this one yet...)
 cp /etc/bash /swap  
 
+### Update Path Variable to include new bash location (also not 100% sure...)  
+export PATH=$PATH: /etc/bash
+
 ### Move old kernel to swap partition  
 mv /root /swap  
 

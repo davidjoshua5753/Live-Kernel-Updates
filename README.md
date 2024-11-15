@@ -37,7 +37,7 @@ rsync /etc/gshadow /recovery/etc/gshadow
 ### Change directory to swap partition:  
 cd /swap  
 
-### Copy Bash to swap:  
+### Copy Bash to swap (so as to ensure that we still have an execution environment):  
 cp /etc/bash /swap  
 
 ### Temporarily update PATH Variable to include new bash location:   

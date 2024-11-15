@@ -21,9 +21,7 @@ How this is to be achieved is up to you (the reader), and I make no promises tha
 /dev/sde - /recovery - 16 GB  
 Free Space: ~200 GB  
 
-# Assuming the home directory is mounted in root.
-
-## PSEUDO-SCRIPT
+## PSEUDO-SCRIPT (ASSUMING HOME IS MOUNTED IN ROOT)
 ### Make a temp directory to store new kernel package in swap:  
 mkdir /swap/tmp  
 
@@ -35,6 +33,9 @@ rsync /etc/passwd /recovery/etc/passwd
 rsync /etc/shadow /recovery/etc/shadow  
 rsync /etc/group /recovery/etc/group  
 rsync /etc/gshadow /recovery/etc/gshadow
+
+### Unmount home from root  
+umount /dev/sdc
 
 ### Change directory to swap partition:  
 cd /swap  
@@ -49,7 +50,10 @@ export PATH=$PATH: /swap/etc/bash
 mv /root /swap  
 
 ### Depackage the new kernel into the old root partition:  
-sudo dpkg /swap/tmp/unix.kernel.org /root  
+sudo dpkg /swap/tmp/unix.kernel.org /root 
+
+### Remount Home Directory in root  
+mount /dev/sdc /home
 
 ### Restore User Password and Group Data:
 rsync /recovery/etc/passwd /etc/passwd  
@@ -70,11 +74,13 @@ $ rsync /etc/passwd /recovery/etc/passwd
 $ rsync /etc/shadow /recovery/etc/shadow  
 $ rsync /etc/group /recovery/etc/group  
 $ rsync /etc/gshadow /recovery/etc/gshadow
+$ umount /dev/sdc
 $ cd /swap  
 $ cp /etc/bash /swap  
 $ export PATH=$PATH:/swap/etc/bash  
 $ mv / /swap  
 $ sudo dpkg /swap/tmp/unix.kernel.org.latest /
+$ mount /dev/sdc /home
 $ rsync /recovery/etc/passwd /etc/passwd  
 $ rsync /recovery/etc/shadow /etc/shadow  
 $ rsync /recovery/etc/group /etc/group  

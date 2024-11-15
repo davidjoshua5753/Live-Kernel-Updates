@@ -6,7 +6,7 @@ The idea of Live Kernel updates is to reduce system downtime, which can be costl
 ### Be mindful to not use this unless doing so in a Virtual Machine, so as not to wreck your system!
 
 ## GIVEN: 
-16 GB RAM
+16 GB RAM  
 512 GB SSD
 
 ## PARTITIONING SCHEME

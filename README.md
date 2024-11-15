@@ -47,6 +47,7 @@ free /swap
 ### One noticeable problem with the following is the lack of a shell or execution environment in swap.  
 ### That however, can easily be remedied, but I don't possess the knowledge to do so.  
 
+```
 $ mkdir /swap/tmp  
 $ wget swift.kernel.org.latest /swap/tmp  
 $ rsync /root/users /recovery  
@@ -55,3 +56,4 @@ $ mv /root /swap
 $ sudo dpkg /swap/tmp/swift.kernel.org.latest /root  
 $ restore /recovery /root/users  
 $ free /swap  
+```

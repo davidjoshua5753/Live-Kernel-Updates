@@ -26,7 +26,7 @@ Free Space: ~200 GB
 mkdir /swap/tmp  
 
 ### Retrieve new Kernel and store in /swap/tmp:  
-wget unix.kernel.org /swap/tmp  
+wget *<link-to-kernel-image>* /swap/tmp  
 
 ### Backup User Password and Group Data:
 rsync /etc/passwd /recovery/etc/passwd  
@@ -50,7 +50,7 @@ export PATH=$PATH: /swap/etc/bash
 mv /root /swap  
 
 ### Depackage the new kernel into the old root partition:  
-sudo dpkg /swap/tmp/unix.kernel.org /root 
+sudo dpkg /swap/tmp/*<kernel-image-file>* /root 
 
 ### Remount Home Directory in root  
 mount /dev/sdc /home
@@ -69,7 +69,7 @@ logout
 
 ```
 $ mkdir /swap/tmp
-$ wget unix.kernel.org.latest /swap/tmp
+$ wget *<link-to-kernel-image>* /swap/tmp
 $ rsync /etc/passwd /recovery/etc/passwd  
 $ rsync /etc/shadow /recovery/etc/shadow  
 $ rsync /etc/group /recovery/etc/group  
@@ -79,7 +79,7 @@ $ cd /swap
 $ cp /etc/bash /swap  
 $ export PATH=$PATH:/swap/etc/bash  
 $ mv /root /swap  
-$ sudo dpkg /swap/tmp/unix.kernel.org.latest /root
+$ sudo dpkg /swap/tmp/*<kernel-image-file>* /root
 $ mount /dev/sdc /home
 $ rsync /recovery/etc/passwd /etc/passwd  
 $ rsync /recovery/etc/shadow /etc/shadow  

@@ -20,7 +20,7 @@ Free Space: 208 GB
 ### Make a temp directory to store new kernel package in swap.  
 mkdir /swap/tmp  
 
-### Retrieve new Kernel  
+### Retrieve new Kernel and store in /swap/tmp
 wget swift.kernel.org /swap/tmp  
 
 ### Backup User Profiles to recovery partition  

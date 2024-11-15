@@ -24,7 +24,7 @@ mkdir /swap/tmp
 wget unix.kernel.org /swap/tmp  
 
 ### Backup User Password and Group Data:  
-rsync /etc/passwd && rsync /etc/shadow && rsync /etc/group && rsync /etc/gshadow
+rsync /etc/passwd /recovery/etc/passwd && rsync /etc/shadow /recovery/etc/shadow && rsync /etc/group /recovery/etc/group && rsync /etc/gshadow /recovery/etc/gshadow
 
 ### Change directory to swap partition:  
 cd /swap  
@@ -42,7 +42,7 @@ mv /root /swap
 sudo dpkg /swap/tmp/unix.kernel.org /root  
 
 ### Restore User Password and Group Data:  
-restore /etc/passwd && restore /etc/shadow && restore /etc/group && restore /etc/gshadow  
+rsync /recovery/etc/passwd /etc/passwd && rsync /recovery/etc/shadow /etc/shadow && rsync /recovery/etc/group /etc/group && rsync /recovery/etc/gshadow /etc/gshadow  
 
 ### Free the memory in Swap:  
 free /swap  
@@ -55,13 +55,13 @@ logout
 ```
 $ mkdir /swap/tmp  
 $ wget unix.kernel.org.latest /swap/tmp
-$ rsync /etc/passwd && rsync /etc/shadow && rsync /etc/group && rsync /etc/gshadow
+$ rsync /etc/passwd /recovery/etc/passwd && rsync /etc/shadow /recovery/etc/shadow && rsync /etc/group /recovery/etc/group && rsync /etc/gshadow /recovery/etc/gshadow
 $ cd /swap
 $ cp /etc/bash /swap
 $ export PATH=$PATH:/swap/etc/bash
 $ mv /root /swap  
 $ sudo dpkg /swap/tmp/unix.kernel.org.latest /root
-$ restore /etc/passwd && restore /etc/shadow && restore /etc/group && restore /etc/gshadow
+$ rsync /recovery/etc/passwd /etc/passwd && rsync /recovery/etc/shadow /etc/shadow && rsync /recovery/etc/group /etc/group && rsync /recovery/etc/gshadow /etc/gshadow
 $ free /swap
 $ logout
 ```

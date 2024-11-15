@@ -1,2 +1,52 @@
 # Live-Kernel-Updates
-Description of Live Kernel Updates
+The idea of Live Kernel updates is to reduce system downtime, which can be costly and potentially take hours.
+
+## GIVEN: 
+16 GB RAM
+512 GB SSD
+
+## ---PARTITIONING SCHEME---
+sda - /boot/efi - 256 MB
+sdb - /root - 256 GB
+sdc - /swap - 32 GB
+sde - /recovery - 16 GB
+Free Space: 208 GB
+
+## ---PSEUDO-SCRIPT---
+//Make a temp directory to store new kernel package in swap.
+mkdir /swap/tmp
+
+//Retrieve new Kernel
+wget swift.kernel.org /swap/tmp
+
+//Backup User Profiles to recovery partition
+rsync /root/users /recovery
+
+//Change directory to swap partition.
+cd /swap
+
+cp /etc/bash /swap 
+
+//Move old kernel to swap partition
+mv /root /swap
+
+//Depackage the new kernel into the old root partition
+sudo dpkg /swap/tmp/swift.kernel.org /root
+
+//Restore user profiles to new kernel in place of old kernel
+restore /recovery /root/users
+
+//Free the memory in Swap.
+free /swap
+
+//One noticeable problem with the following is the lack of a shell or execution environment in swap.
+//That however, can easily be remedied, but I don't possess the knowledge to do so.
+
+$ mkdir /swap/tmp
+$ wget swift.kernel.org.latest /swap/tmp
+$ rsync /root/users /recovery
+$ cd /swap
+$ mv /root /swap
+$ sudo dpkg /swap/tmp/swift.kernel.org.latest /root
+$ restore /recovery /root/users
+$ free /swap

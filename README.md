@@ -15,11 +15,16 @@ How this is to be achieved is up to you (the reader), and I make no promises tha
 16 GB RAM  
 512 GB SSD
 
-## PARTITIONING SCHEME
+## PARTITIONING SCHEME  
+### Boot Partition
 /dev/sda - /boot/efi - 256 MB  
-/dev/sdb - /root - 8 GB  
+### Root Partition  
+/dev/sdb - / - 8 GB  
+### Home Partition  
 /dev/sdc - /home 256 GB  
+### Swap Space
 /dev/sdd - /swap - 32 GB  
+### Recovery Partition
 /dev/sde - /recovery - 16 GB  
 Free Space: ~200 GB  
 

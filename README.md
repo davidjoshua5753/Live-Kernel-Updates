@@ -17,15 +17,16 @@ How this is to be achieved is up to you (the reader), and I make no promises tha
 
 ## PARTITIONING SCHEME  
 ### Boot Partition
-/dev/sda - /boot/efi - 256 MB  
-### Root Partition  
-/dev/sdb - / - 8 GB  
-### Home Partition  
-/dev/sdc - /home 256 GB  
+/dev/sda - /boot/efi - 256 MB
+### Root Partition
+/dev/sdb - / - 8 GB
+### Home Partition
+/dev/sdc - /home 256 G
 ### Swap Space
-/dev/sdd - /swap - 32 GB  
+/dev/sdd - /swap - 32 GB
 ### Recovery Partition
-/dev/sde - /recovery - 16 GB  
+/dev/sde - /recovery - 16 GB
+### Free Space
 Free Space: ~200 GB  
 
 ## PSEUDO-SCRIPT (ASSUMING HOME IS MOUNTED IN ROOT)  

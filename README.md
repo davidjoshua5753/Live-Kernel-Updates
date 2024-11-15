@@ -1,5 +1,9 @@
 # Live-Kernel-Updates
-The idea of Live Kernel updates is to reduce system downtime, which can be costly and potentially take hours.
+The idea of Live Kernel updates is to reduce system downtime, which can be costly and potentially take hours.  
+
+## WARNING  
+These commands are incomplete not final, and could damage your system!  
+Be mindful to not use this unless doing so in a Virtual Machine, so as not to wreck your system!
 
 ## GIVEN: 
 16 GB RAM
@@ -13,40 +17,40 @@ sde - /recovery - 16 GB
 Free Space: 208 GB  
 
 ## PSEUDO-SCRIPT
-//Make a temp directory to store new kernel package in swap.
-mkdir /swap/tmp
+//Make a temp directory to store new kernel package in swap.  
+mkdir /swap/tmp  
 
-//Retrieve new Kernel
-wget swift.kernel.org /swap/tmp
+//Retrieve new Kernel  
+wget swift.kernel.org /swap/tmp  
 
-//Backup User Profiles to recovery partition
-rsync /root/users /recovery
+//Backup User Profiles to recovery partition  
+rsync /root/users /recovery  
 
-//Change directory to swap partition.
-cd /swap
+//Change directory to swap partition.  
+cd /swap  
 
-cp /etc/bash /swap 
+cp /etc/bash /swap  
 
-//Move old kernel to swap partition
-mv /root /swap
+//Move old kernel to swap partition  
+mv /root /swap  
 
-//Depackage the new kernel into the old root partition
-sudo dpkg /swap/tmp/swift.kernel.org /root
+//Depackage the new kernel into the old root partition  
+sudo dpkg /swap/tmp/swift.kernel.org /root  
 
-//Restore user profiles to new kernel in place of old kernel
-restore /recovery /root/users
+//Restore user profiles to new kernel in place of old kernel  
+restore /recovery /root/users  
 
-//Free the memory in Swap.
-free /swap
+//Free the memory in Swap.  
+free /swap  
 
-//One noticeable problem with the following is the lack of a shell or execution environment in swap.
-//That however, can easily be remedied, but I don't possess the knowledge to do so.
+//One noticeable problem with the following is the lack of a shell or execution environment in swap.  
+//That however, can easily be remedied, but I don't possess the knowledge to do so.  
 
-$ mkdir /swap/tmp
-$ wget swift.kernel.org.latest /swap/tmp
-$ rsync /root/users /recovery
-$ cd /swap
-$ mv /root /swap
-$ sudo dpkg /swap/tmp/swift.kernel.org.latest /root
-$ restore /recovery /root/users
-$ free /swap
+$ mkdir /swap/tmp  
+$ wget swift.kernel.org.latest /swap/tmp  
+$ rsync /root/users /recovery  
+$ cd /swap  
+$ mv /root /swap  
+$ sudo dpkg /swap/tmp/swift.kernel.org.latest /root  
+$ restore /recovery /root/users  
+$ free /swap  

@@ -5,14 +5,14 @@ The idea of Live Kernel updates is to reduce system downtime, which can be costl
 16 GB RAM
 512 GB SSD
 
-## ---PARTITIONING SCHEME---
+## PARTITIONING SCHEME
 sda - /boot/efi - 256 MB
 sdb - /root - 256 GB
 sdc - /swap - 32 GB
 sde - /recovery - 16 GB
 Free Space: 208 GB
 
-## ---PSEUDO-SCRIPT---
+## PSEUDO-SCRIPT
 //Make a temp directory to store new kernel package in swap.
 mkdir /swap/tmp
 

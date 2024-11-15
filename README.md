@@ -16,7 +16,7 @@ How this is to be achieved is up to you (the reader), and I make no promises tha
 ## PARTITIONING SCHEME
 sda - /boot/efi - 256 MB  
 sdb - /root - 8 GB  
-sdc - /home 256 GB
+sdc - /home 256 GB  
 sdd - /swap - 32 GB  
 sde - /recovery - 16 GB  
 Free Space: ~200 GB  

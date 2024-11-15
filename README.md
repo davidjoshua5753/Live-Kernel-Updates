@@ -23,8 +23,20 @@ mkdir /swap/tmp
 ### Retrieve new Kernel and store in /swap/tmp:  
 wget unix.kernel.org /swap/tmp  
 
+### Make Directory on Recovery Partition to Store User Data
+mkdir /recovery/users
+
+### Make Directory on Recovery Partition to Store User Password Data
+mkdir /recovery/data
+
 ### Backup User Profiles to recovery partition:  
-rsync /root/users /recovery  
+rsync /root/users /recovery/users
+
+### Backup User Password Data to Recovery Partition
+rsync /etc/passwd /recovery/data && rsync /etc/shadow /recovery/data
+
+### Backup User Password Data
+rsync /etc/passwd /recov
 
 ### Change directory to swap partition:  
 cd /swap  

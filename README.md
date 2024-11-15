@@ -28,7 +28,7 @@ mkdir /swap/tmp
 ### Retrieve new Kernel and store in /swap/tmp:  
 wget unix.kernel.org /swap/tmp  
 
-### Backup User Password, Group and Home Folder Data:
+### Backup User Password and Group Data:
 rsync /etc/passwd /recovery/etc/passwd  
 rsync /etc/shadow /recovery/etc/shadow  
 rsync /etc/group /recovery/etc/group  

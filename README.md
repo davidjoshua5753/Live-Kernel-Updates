@@ -27,7 +27,8 @@ mkdir /swap/tmp
 ### Retrieve new Kernel and store in /swap/tmp:  
 wget unix.kernel.org /swap/tmp  
 
-### Backup User Password and Group Data:  
+### Backup User Password, Group and Home Folder Data:  
+rsync /home /recovery/home  
 rsync /etc/passwd /recovery/etc/passwd  
 rsync /etc/shadow /recovery/etc/shadow  
 rsync /etc/group /recovery/etc/group  
@@ -48,7 +49,8 @@ mv /root /swap
 ### Depackage the new kernel into the old root partition:  
 sudo dpkg /swap/tmp/unix.kernel.org /root  
 
-### Restore User Password and Group Data:  
+### Restore User Password and Group Data:
+rsync /recovery/home /home  
 rsync /recovery/etc/passwd /etc/passwd  
 rsync /recovery/etc/shadow /etc/shadow  
 rsync /recovery/etc/group /etc/group  
@@ -58,12 +60,11 @@ rsync /recovery/etc/gshadow /etc/gshadow
 free /swap  
 
 ### Logout of session to confirm changes  
-logout  
-
-### NOTE: Copying /etc/shadow may be required to retain USER PASSWORD DATA.  
+logout   
 
 ```
-$ mkdir /swap/tmp  
+$ mkdir /swap/tmp
+$ rsync /home /recovery/home
 $ wget unix.kernel.org.latest /swap/tmp
 $ rsync /etc/passwd /recovery/etc/passwd  
 $ rsync /etc/shadow /recovery/etc/shadow  
@@ -73,7 +74,8 @@ $ cd /swap
 $ cp /etc/bash /swap  
 $ export PATH=$PATH:/swap/etc/bash  
 $ mv /root /swap  
-$ sudo dpkg /swap/tmp/unix.kernel.org.latest /root  
+$ sudo dpkg /swap/tmp/unix.kernel.org.latest /root
+$ rsync /recovery/home /home 
 $ rsync /recovery/etc/passwd /etc/passwd  
 $ rsync /recovery/etc/shadow /etc/shadow  
 $ rsync /recovery/etc/group /etc/group  

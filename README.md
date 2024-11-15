@@ -45,7 +45,9 @@ sudo dpkg /swap/tmp/unix.kernel.org /root
 restore /recovery /root/users  
 
 ### Free the memory in Swap:  
-free /swap    
+free /swap  
+
+## NOTE: A SYMLINK TO /etc/shadow may be required to copy over USER PASSWORD DATA.  
 
 ```
 $ mkdir /swap/tmp  

@@ -21,7 +21,7 @@ How this is to be achieved is up to you (the reader), and I make no promises tha
 ### Root Partition
 /dev/sdb - / - 8 GB
 ### Home Partition
-/dev/sdc - /home 256 G
+/dev/sdc - /home 256 GB
 ### Swap Space
 /dev/sdd - /swap - 32 GB
 ### Recovery Partition

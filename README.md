@@ -27,16 +27,13 @@ wget unix.kernel.org /swap/tmp
 mkdir /recovery/users
 
 ### Make Directory on Recovery Partition to Store User Password Data
-mkdir /recovery/data
+mkdir /recovery/pdata
 
 ### Backup User Profiles to recovery partition:  
 rsync /root/users /recovery/users
 
 ### Backup User Password Data to Recovery Partition
-rsync /etc/passwd /recovery/data && rsync /etc/shadow /recovery/data
-
-### Backup User Password Data
-rsync /etc/passwd /recov
+rsync /etc/passwd /recovery/pdata && rsync /etc/shadow /recovery/pdata
 
 ### Change directory to swap partition:  
 cd /swap  

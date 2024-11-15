@@ -78,8 +78,8 @@ $ umount /dev/sdc
 $ cd /swap  
 $ cp /etc/bash /swap  
 $ export PATH=$PATH:/swap/etc/bash  
-$ mv / /swap  
-$ sudo dpkg /swap/tmp/unix.kernel.org.latest /
+$ mv /root /swap  
+$ sudo dpkg /swap/tmp/unix.kernel.org.latest /root
 $ mount /dev/sdc /home
 $ rsync /recovery/etc/passwd /etc/passwd  
 $ rsync /recovery/etc/shadow /etc/shadow  

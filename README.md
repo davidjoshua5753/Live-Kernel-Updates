@@ -1,5 +1,8 @@
 # Live Kernel Updates
 The idea of Live Kernel updates is to reduce system downtime, which can be costly and potentially take hours.  
+Ideally, with this approach, the concept is simple:  
+Firstly, backup old data. Then, move the session into swap space and RAM, then update the kernel files and finally restore user data.  
+How this is to be achieved is up to you [the reader], and I make no promises that this bash script will work "outside the box" without a little bit of jiggery-pokery.  
 
 ## WARNING  
 ### This bash script may be incomplete and not final, and could damage your system!  

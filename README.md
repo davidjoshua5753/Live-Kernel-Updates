@@ -23,7 +23,7 @@ mkdir /swap/tmp
 ### Retrieve new Kernel and store in /swap/tmp:  
 wget unix.kernel.org /swap/tmp  
 
-### Backup User Password and Group Data
+### Backup User Password and Group Data:  
 rsync /etc/passwd && rsync /etc/shadow && rsync /etc/group && rsync /etc/gshadow
 
 ### Change directory to swap partition:  
@@ -41,8 +41,14 @@ mv /root /swap
 ### Depackage the new kernel into the old root partition:  
 sudo dpkg /swap/tmp/unix.kernel.org /root  
 
+### Restore User Password and Group Data:  
+restore /etc/passwd && restore /etc/shadow && restore /etc/group && restore /etc/gshadow  
+
 ### Free the memory in Swap:  
 free /swap  
+
+### Logout of session to confirm changes  
+logout  
 
 ### NOTE: Copying /etc/shadow may be required to retain USER PASSWORD DATA.  
 

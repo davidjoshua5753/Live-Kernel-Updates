@@ -23,17 +23,8 @@ mkdir /swap/tmp
 ### Retrieve new Kernel and store in /swap/tmp:  
 wget unix.kernel.org /swap/tmp  
 
-### Make Directory on Recovery Partition to Store User Data
-mkdir /recovery/users
-
-### Make Directory on Recovery Partition to Store User Password Data
-mkdir /recovery/pdata
-
-### Backup User Profiles to recovery partition:  
-rsync /root/users /recovery/users
-
-### Backup User Password Data to Recovery Partition
-rsync /etc/passwd /recovery/pdata && rsync /etc/shadow /recovery/pdata
+### Backup User Password and Group Data
+rsync /etc/passwd && rsync /etc/shadow && rsync /etc/group && rsync /etc/gshadow
 
 ### Change directory to swap partition:  
 cd /swap  
@@ -50,9 +41,6 @@ mv /root /swap
 ### Depackage the new kernel into the old root partition:  
 sudo dpkg /swap/tmp/unix.kernel.org /root  
 
-### Restore user profiles to new kernel in place of old kernel:  
-restore /recovery /root/users  
-
 ### Free the memory in Swap:  
 free /swap  
 
@@ -60,13 +48,14 @@ free /swap
 
 ```
 $ mkdir /swap/tmp  
-$ wget unix.kernel.org.latest /swap/tmp  
-$ rsync /root/users /recovery  
+$ wget unix.kernel.org.latest /swap/tmp
+$ rsync /etc/passwd && rsync /etc/shadow && rsync /etc/group && rsync /etc/gshadow
 $ cd /swap
 $ cp /etc/bash /swap
 $ export PATH=$PATH:/swap/etc/bash
 $ mv /root /swap  
-$ sudo dpkg /swap/tmp/unix.kernel.org.latest /root  
-$ restore /recovery /root/users  
-$ free /swap  
+$ sudo dpkg /swap/tmp/unix.kernel.org.latest /root
+$ restore /etc/passwd && restore /etc/shadow && restore /etc/group && restore /etc/gshadow
+$ free /swap
+$ logout
 ```

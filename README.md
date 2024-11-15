@@ -21,7 +21,7 @@ Free Space: 208 GB
 mkdir /swap/tmp  
 
 ### Retrieve new Kernel and store in /swap/tmp:  
-wget swift.kernel.org /swap/tmp  
+wget unix.kernel.org /swap/tmp  
 
 ### Backup User Profiles to recovery partition:  
 rsync /root/users /recovery  
@@ -39,7 +39,7 @@ export PATH=$PATH: /swap/etc/bash
 mv /root /swap  
 
 ### Depackage the new kernel into the old root partition:  
-sudo dpkg /swap/tmp/swift.kernel.org /root  
+sudo dpkg /swap/tmp/unix.kernel.org /root  
 
 ### Restore user profiles to new kernel in place of old kernel:  
 restore /recovery /root/users  
@@ -49,13 +49,13 @@ free /swap
 
 ```
 $ mkdir /swap/tmp  
-$ wget swift.kernel.org.latest /swap/tmp  
+$ wget unix.kernel.org.latest /swap/tmp  
 $ rsync /root/users /recovery  
 $ cd /swap
 $ cp /etc/bash /swap
 $ export PATH=$PATH:/swap/etc/bash
 $ mv /root /swap  
-$ sudo dpkg /swap/tmp/swift.kernel.org.latest /root  
+$ sudo dpkg /swap/tmp/unix.kernel.org.latest /root  
 $ restore /recovery /root/users  
 $ free /swap  
 ```

@@ -47,7 +47,7 @@ restore /recovery /root/users
 ### Free the memory in Swap:  
 free /swap  
 
-## NOTE: A SYMLINK TO /etc/shadow may be required to copy over USER PASSWORD DATA.  
+### NOTE: Copying /etc/shadow may be required to retain USER PASSWORD DATA.  
 
 ```
 $ mkdir /swap/tmp  

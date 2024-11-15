@@ -23,7 +23,11 @@ How this is to be achieved is up to you (the reader), and I make no promises tha
 /dev/sde - /recovery - 16 GB  
 Free Space: ~200 GB  
 
-## PSEUDO-SCRIPT (ASSUMING HOME IS MOUNTED IN ROOT)
+## PSEUDO-SCRIPT (ASSUMING HOME IS MOUNTED IN ROOT)  
+
+### Login as root user  
+su root  
+
 ### Make a temp directory to store new kernel package in swap:  
 mkdir /swap/tmp  
 
@@ -49,10 +53,10 @@ cp /etc/bash /swap
 export PATH=$PATH: /swap/etc/bash
 
 ### Move old kernel to swap partition:  
-mv /root /swap  
+mv / /swap  
 
 ### Depackage the new kernel into the old root partition:  
-sudo dpkg /swap/tmp/***[kernel-image-file]*** /root 
+sudo dpkg /swap/tmp/***[kernel-image-file]*** / 
 
 ### Remount Home Directory in root  
 mount /dev/sdc /home
@@ -70,6 +74,7 @@ free /swap
 logout   
 
 ```
+su root
 mkdir /swap/tmp
 wget [link-to-kernel-image] /swap/tmp
 rsync /etc/passwd /recovery/etc/passwd  
@@ -80,8 +85,8 @@ umount /dev/sdc
 cd /swap  
 cp /etc/bash /swap  
 export PATH=$PATH:/swap/etc/bash  
-mv /root /swap  
-sudo dpkg /swap/tmp/[kernel-image-file] /root
+mv / /swap  
+sudo dpkg /swap/tmp/[kernel-image-file] /
 mount /dev/sdc /home
 rsync /recovery/etc/passwd /etc/passwd  
 rsync /recovery/etc/shadow /etc/shadow  

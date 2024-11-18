@@ -87,8 +87,8 @@ rsync /etc/passwd /recovery/etc/passwd
 rsync /etc/shadow /recovery/etc/shadow  
 rsync /etc/group /recovery/etc/group  
 rsync /etc/gshadow /recovery/etc/gshadow
-umount /dev/sdc
-cd /swap  
+cd /swap
+umount /home 
 cp /etc/bash /swap  
 export PATH=$PATH:/swap/etc/bash  
 mv / /swap  

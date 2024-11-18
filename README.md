@@ -46,11 +46,11 @@ rsync /etc/shadow /recovery/etc/shadow
 rsync /etc/group /recovery/etc/group  
 rsync /etc/gshadow /recovery/etc/gshadow
 
-### Unmount home from root  
-umount /dev/sdc  
-
 ### Change directory to swap partition:  
 cd /swap  
+
+### Unmount home from root  
+umount /home  
 
 ### Copy Bash to swap (so as to ensure that we still have an execution environment):  
 cp /etc/bash /swap  

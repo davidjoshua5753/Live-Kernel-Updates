@@ -11,7 +11,7 @@ How this is to be achieved is up to you (the reader), and I make no promises tha
 
 ### IT IS RECOMMENDED TO RUN THE SCRIPT AS ROOT.
 
-## GIVEN: 
+## GIVEN   
 16 GB RAM  
 512 GB SSD
 

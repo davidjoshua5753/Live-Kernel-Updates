@@ -1,5 +1,6 @@
 # Live Kernel Updates
-The idea of Live Kernel updates is to reduce system downtime, which can be costly and potentially take hours.  
+The idea of Live Kernel updates is to reduce system downtime by allowing use of the system even while the kernel is updating and without having to restart the system  
+which can be costly and potentially take hours.  
 Ideally, with this approach, the concept is simple:  
 
 Firstly, backup old data. Then, move the session into swap space and RAM, then update the kernel files and finally restore user data.  
